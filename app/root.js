@@ -1,44 +1,43 @@
-
 /*
 my first react native project
 wrote by wine
 2018/12/12
 */
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+"use strict";
 
-export default class App extends Component {
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  Easing,
+  StyleSheet,
+  Animated,
+  YellowBox
+} from "react-native";
+import { createStackNavigator } from "react-navigation";
+
+import IndexPage from "./pages/Home";
+
+YellowBox.ignoreWarnings([
+  "Warning: isMounted(...) is deprecated",
+  "Module RCTImageLoader"
+]);
+
+const MainStack = createStackNavigator(
+  {
+    Home: {
+      screen: IndexPage
+    }
+  },
+  {
+    initialRouteName: "Home",
+    headerMode: "none" //隐藏原生导航栏
+  }
+);
+export default class Root extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.instructions}>
-          To get started, edit it
-        </Text>
-      </View>
+        <MainStack />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
