@@ -6,27 +6,28 @@ export default class Swipers extends Component {
     super(props);
     this.state = {};
   }
+  
   render() {
     return (
-      <View>
-        <Swiper style={styles.wrapper} showsButtons={true}>
-          <View style={styles.slide1}>
-            <Text style={styles.text}>Hello Swiper</Text>
-          </View>
-          <View style={styles.slide2}>
-            <Text style={styles.text}>Beautiful</Text>
-          </View>
-          <View style={styles.slide3}>
-            <Text style={styles.text}>And simple</Text>
-          </View>
-        </Swiper>
+      <Swiper style={styles.wrapper} showsButtons={true}>
+      <View style={styles.slide1}>
+        <Text style={styles.text}>Hello Swiper</Text>
       </View>
+      <View style={styles.slide2}>
+        <Text style={styles.text}>Beautiful</Text>
+      </View>
+      <View style={styles.slide3}>
+        <Text style={styles.text}>And simple</Text>
+      </View>
+    </Swiper>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  wrapper: {},
+  wrapper: {
+    backgroundColor:'#000'
+  },
   slide1: {
     flex: 1,
     justifyContent: "center",
